@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private Vector2 move;
-
+    private float _gravity = -9.81f;
+    [SerializeField] private float gravityMultiplier = 3.0f;
+    private float _velocity;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -22,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movePlayer();
+    }
+
+    private void ApplyGravity()
+    {
+       // _velocity += _gravity * gravityMultiplier * Time.deltaTime;
     }
 
     public void movePlayer()
