@@ -6,34 +6,28 @@ interface IInteractable
 }
 public class Interactor : MonoBehaviour
 {
-
+    public LayerMask interactable;
     public Transform interactorSource;
     public float InteractRange;
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray r = new Ray(interactorSource.position, interactorSource.forward);
-            if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+            if (Physics.OverlapSphere(interactorSource.position, 5f, interactable).Length > 0)
             {
-                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-                {
-                    interactObj.Interact();
-                }
+                Physics.OverlapSphere(interactorSource.position, 5f, interactable)[0].GetComponent<Transform>().position = Vector3.zero;
+
             }
         }
-        
+
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(interactorSource.position, interactorSource.forward);
-    }
+
 
 }

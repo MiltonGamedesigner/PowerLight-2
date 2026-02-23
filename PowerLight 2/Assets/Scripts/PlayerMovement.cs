@@ -5,10 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
+    Rigidbody rb;
     public float speed;
     private Vector2 move;
-    private float _gravity = -9.81f;
-    [SerializeField] private float gravityMultiplier = 3.0f;
     private float _velocity;
 
     public void OnMove(InputAction.CallbackContext context)
@@ -19,17 +18,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
+        rb=GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         movePlayer();
-    }
-
-    private void ApplyGravity()
-    {
-       // _velocity += _gravity * gravityMultiplier * Time.deltaTime;
     }
 
     public void movePlayer()
@@ -41,7 +37,9 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
         }
 
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);
+       // transform.Translate(movement * speed * Time.deltaTime, Space.World);
+       Debug.Log(movement * speed);
+        rb.linearVelocity = movement * speed;
 
     }
 }
