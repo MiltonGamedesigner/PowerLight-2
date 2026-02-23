@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public float speed;
     private Vector2 move;
     private float _gravity = -9.81f;
