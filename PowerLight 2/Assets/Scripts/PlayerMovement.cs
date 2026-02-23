@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        rb=GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -32,14 +32,23 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(move.x, 0f, move.y);
 
-        if (movement != Vector3.zero)
+        //if (movement != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
         }
 
-       // transform.Translate(movement * speed * Time.deltaTime, Space.World);
-       Debug.Log(movement * speed);
-        rb.linearVelocity = movement * speed;
+        if (movement.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        }
+
+
+        // transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        Debug.Log(movement * speed);
+        float gravity = rb.linearVelocity.y;
+        rb.linearVelocity = (movement * speed) + new Vector3(0, gravity, 0);
+
 
     }
 }
