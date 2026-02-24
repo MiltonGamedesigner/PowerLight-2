@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Vector2 move;
     private float _velocity;
+    public Animator ani;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
+        S
 
     }
 
@@ -32,17 +34,21 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(move.x, 0f, move.y);
 
-        //if (movement != Vector3.zero)
-        {
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-        }
-
         if (movement.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            ani.SetBool("isWalking", true);
+
         }
 
+        else
+        {
+
+            ani.SetBool("isWalking", false);
+
+        }
 
         // transform.Translate(movement * speed * Time.deltaTime, Space.World);
         Debug.Log(movement * speed);

@@ -11,7 +11,7 @@ public class Interactor : MonoBehaviour
 
     void Start()
     {
-        test[2] = 3;
+        //test[2] = 3;
     }
 
     void Update()
