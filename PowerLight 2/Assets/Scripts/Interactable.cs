@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -10,11 +11,14 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
-        Camera.Priority = 10;
-
-
-
-
+        if (Camera != null)
+            StartCoroutine(CameraCutscene());
+        Debug.Log("funkar");
     }
-
+    public IEnumerator CameraCutscene()
+    {
+        Camera.Priority = 10;
+        yield return new WaitForSeconds(5);
+        Camera.Priority = 0;
+    }
 }
