@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // transform.Translate(movement * speed * Time.deltaTime, Space.World);
-        Debug.Log(movement * speed);
+   
         float gravity = rb.linearVelocity.y;
         rb.linearVelocity = (movement * speed) + new Vector3(0, gravity, 0);
 
