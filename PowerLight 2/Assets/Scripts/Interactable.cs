@@ -5,20 +5,23 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public GameObject Object;
+    public float cameraTime;
     public bool On;
     public string aniName;
+    public Animator animator;
     public CinemachineCamera Camera;
 
     public void Interact()
     {
         if (Camera != null)
             StartCoroutine(CameraCutscene());
-        Debug.Log("funkar");
+
+        animator.SetBool(aniName, true);
     }
     public IEnumerator CameraCutscene()
     {
         Camera.Priority = 10;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(cameraTime);
         Camera.Priority = 0;
     }
 }
