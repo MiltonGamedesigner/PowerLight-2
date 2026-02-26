@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public GameObject Object;
+    public int phase;
+
     public float cameraTime;
-    public bool On;
     public string aniName;
     public Animator animator;
     public CinemachineCamera Camera;
+    public Transform teleporter;
+    public Vector3 destination;
 
     public void Interact()
     {
         if (Camera != null)
             StartCoroutine(CameraCutscene());
 
-        animator.SetBool(aniName, true);
+        if (animator != null)
+            animator.SetBool(aniName, true);
+
+        if (teleporter != null)
+            teleporter.position = destination;
     }
+
     public IEnumerator CameraCutscene()
     {
         Camera.Priority = 10;

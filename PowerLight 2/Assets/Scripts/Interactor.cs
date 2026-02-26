@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    public int[] test;
+    public int Progression;
 
+    public float distance;
     public LayerMask interactable;
     public Transform interactorSource;
     public float InteractRange;
@@ -16,12 +17,19 @@ public class Interactor : MonoBehaviour
 
     void Update()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.OverlapSphere(interactorSource.position, 5f, interactable).Length > 0)
+            if (Physics.OverlapSphere(interactorSource.position, distance, interactable).Length > 0)
             {
-                Physics.OverlapSphere(interactorSource.position, 5f, interactable)[0].GetComponent<Interactable>().Interact();
+                foreach (Collider col in Physics.OverlapSphere(interactorSource.position, distance, interactable))
+                {
+                    if (col.GetComponent<Interactable>().phase == Progression)
+                    {
+                        col.GetComponent<Interactable>().Interact();
+                        Progression++;
+                    }
+                }
             }
         }
     }
