@@ -17,19 +17,23 @@ public class Interactor : MonoBehaviour
 
     void Update()
     {
+        Collider[] ínteractables = Physics.OverlapSphere(interactorSource.position, distance, interactable);
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!Input.GetKeyDown(KeyCode.E)) return;
+
+        if (ínteractables.Length <= 0) return;
+
+        foreach (Collider col in ínteractables)
         {
-            if (Physics.OverlapSphere(interactorSource.position, distance, interactable).Length > 0)
+            Interactable inter = col.GetComponent<Interactable>();
+
+            if (inter.phase != Progression) continue;
+
+            inter.Interact();
+
+            if (inter.isProgression)
             {
-                foreach (Collider col in Physics.OverlapSphere(interactorSource.position, distance, interactable))
-                {
-                    if (col.GetComponent<Interactable>().phase == Progression)
-                    {
-                        col.GetComponent<Interactable>().Interact();
-                        Progression++;
-                    }
-                }
+                Progression++;
             }
         }
     }

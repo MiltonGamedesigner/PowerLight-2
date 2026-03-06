@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -6,12 +7,15 @@ public class Interactable : MonoBehaviour
 {
     public int phase;
 
+    public bool isProgression;
     public float cameraTime;
     public string aniName;
     public Animator animator;
     public CinemachineCamera Camera;
     public Transform teleporter;
     public Vector3 destination;
+    public GameObject exist;
+
 
     public void Interact()
     {
@@ -23,6 +27,9 @@ public class Interactable : MonoBehaviour
 
         if (teleporter != null)
             teleporter.position = destination;
+
+        if (exist != null)
+            exist.SetActive(true);
     }
 
     public IEnumerator CameraCutscene()
