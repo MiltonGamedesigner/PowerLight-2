@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 8528467031774689972}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,8 +563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683610735dcfe5b458f91a9468527832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 2.6
-  ani: {fileID: 5001964641738332373}
+  moveSpeed: 0
+  moveSpeedBack: 0
+  rotateSpeed: 0
+  anim: {fileID: 0}
 --- !u!114 &2968193446817756961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,11 +897,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b621de2f1c96f46ac36187fd4dd748, type: 3}
---- !u!95 &5001964641738332373 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2015566799640035728, guid: 04b621de2f1c96f46ac36187fd4dd748, type: 3}
-  m_PrefabInstance: {fileID: 6814569677968972101}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6670475050263751458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 144254496253325927, guid: 04b621de2f1c96f46ac36187fd4dd748, type: 3}
