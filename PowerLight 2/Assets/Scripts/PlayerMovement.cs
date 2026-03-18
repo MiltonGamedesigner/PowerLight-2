@@ -6,55 +6,50 @@ public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float speed;
-    private Vector2 move;
-    private float _velocity;
-    public Animator ani;
+    public float moveSpeed, rotateSpeed;
+    float movement, rotation;
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        move = context.ReadValue<Vector2>();
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Animator anim; //animation
+
     void Start()
     {
-
         rb = GetComponent<Rigidbody>();
-
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        movePlayer();
-    }
+        movement = Input.GetAxis("Vertical") * moveSpeed;
+        rotation = Input.GetAxis("Horizontal") * rotateSpeed;
 
-    public void movePlayer()
-    {
-        Vector3 movement = new Vector3(move.x, 0f, move.y);
+        //Vector3 vel = transform.forward * movement;
 
-        if (movement.magnitude >= 0.1f)
+        //rb.linearVelocity = new Vector3(vel.x, rb.linearVelocity.y, vel.z);
+        //transform.Rotate(0f, rotation, 0f);
+
+        if (movement == 0)
         {
-            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            anim.SetBool("isWalking", false);
 
-            ani.SetBool("isWalking", true);
-
+            if (rotation != 0)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+            }
         }
-
         else
         {
-
-            ani.SetBool("isWalking", false);
-
+            anim.SetBool("isWalking", true);
         }
+    }
 
-        // transform.Translate(movement * speed * Time.deltaTime, Space.World);
-   
-        float gravity = rb.linearVelocity.y;
-        rb.linearVelocity = (movement * speed) + new Vector3(0, gravity, 0);
+    private void FixedUpdate()
+    {
+        Vector3 vel = transform.forward * movement;
 
-
+        rb.linearVelocity = new Vector3(vel.x, rb.linearVelocity.y, vel.z);
+        transform.Rotate(0f, rotation, 0f);
     }
 }
