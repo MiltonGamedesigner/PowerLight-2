@@ -563,10 +563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683610735dcfe5b458f91a9468527832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 0
-  moveSpeedBack: 0
-  rotateSpeed: 0
-  anim: {fileID: 0}
+  moveSpeed: 3
+  moveSpeedBack: 1
+  rotateSpeed: 3
+  anim: {fileID: 5001964641738332373}
 --- !u!114 &2968193446817756961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,9 +709,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2692647746789949628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,6 +897,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b621de2f1c96f46ac36187fd4dd748, type: 3}
+--- !u!95 &5001964641738332373 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2015566799640035728, guid: 04b621de2f1c96f46ac36187fd4dd748, type: 3}
+  m_PrefabInstance: {fileID: 6814569677968972101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6670475050263751458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 144254496253325927, guid: 04b621de2f1c96f46ac36187fd4dd748, type: 3}
