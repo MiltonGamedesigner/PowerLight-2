@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2827299626062331535}
   - component: {fileID: 2012859076563293738}
   - component: {fileID: 2465431264960992291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Galler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
