@@ -12,11 +12,13 @@ public class PlayerMovement : MonoBehaviour
     float movement;
     float rotation;
 
+    public bool canMove;
     public Animator anim; //animation
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        canMove = true;
     }
 
     void Update()
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 vel = transform.forward * movement;
+        Vector3 vel = (canMove) ? transform.forward * movement : Vector3.zero;
 
         rb.linearVelocity = new Vector3(vel.x, rb.linearVelocity.y, vel.z);
         transform.Rotate(0f, rotation, 0f);
