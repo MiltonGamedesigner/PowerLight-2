@@ -8,6 +8,9 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform[] pursuitPoints;
     public float idleWait;
     public Animator animator;
+    public Material hurt;
+    public Material idle;
+
 
     private NavMeshAgent agent;
     private int currentDestination;
@@ -26,6 +29,11 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Idle();
         }
+    }
+
+    public void Aggresive()
+    {
+
     }
     public void Idle()
     {
@@ -50,5 +58,21 @@ public class EnemyBehaviour : MonoBehaviour
         animator.SetBool("Walk", true);
 
         agent.SetDestination(pursuitPoints[currentDestination].transform.position);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Weapon")
+        {
+            Debug.Log("Hit");
+            StartCoroutine(Hurt());
+        }
+    }
+
+    IEnumerator Hurt()
+    {
+        GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterial = hurt;
+        yield return new WaitForSeconds(0.25f);
+        GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterial = idle;
     }
 }
