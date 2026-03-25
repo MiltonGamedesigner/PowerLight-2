@@ -64,7 +64,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5764021508421847364}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 698d9216dac34814cbaaf2f1211dfdd7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   - {fileID: 0}
   idleWait: 5
   animator: {fileID: 462035381427874532}
+  hurt: {fileID: 2100000, guid: c268044f53a925143a128d1e65ecd039, type: 2}
+  idle: {fileID: 2100000, guid: eae74d83ed4a94c41b288330a52500d3, type: 2}
 --- !u!1001 &3436095744758526535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: 968bbb640be48af4eb2ac6a7cb3da921, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eae74d83ed4a94c41b288330a52500d3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
