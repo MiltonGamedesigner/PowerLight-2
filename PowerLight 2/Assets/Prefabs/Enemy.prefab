@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6998c5578a60d1341b5ab1f2928ebe44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  health: 3
   idleWait: 5
   detectDistance: 5
   AttackRange: 0.4
