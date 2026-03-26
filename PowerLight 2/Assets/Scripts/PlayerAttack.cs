@@ -6,15 +6,20 @@ public class PlayerAttack : MonoBehaviour
     public float windUpTime;
     public BoxCollider weaponHitbox;
     public Animator ani;
+    public GameObject wrench;
+    public bool HasWrench;
 
     private bool startAttack;
-    void Start()
-    {
 
+    private void Start()
+    {
+        HasWrench = false;
     }
     void Update()
     {
-        if (!startAttack && Input.GetKeyDown(KeyCode.K))
+        wrench.SetActive(HasWrench);
+
+        if (!startAttack && Input.GetKeyDown(KeyCode.K) && HasWrench)
         {
             startAttack = true;
             StartCoroutine(Attack());
@@ -24,13 +29,13 @@ public class PlayerAttack : MonoBehaviour
     {
         GetComponent<PlayerMovement>().canMove = false;
         ani.SetTrigger("Attack");
-       
+
         yield return new WaitForSeconds(windUpTime);
 
         weaponHitbox.enabled = true;
 
         yield return new WaitForSeconds(1.667f - windUpTime);
-        
+
         startAttack = false;
         weaponHitbox.enabled = false;
         GetComponent<PlayerMovement>().canMove = true;
