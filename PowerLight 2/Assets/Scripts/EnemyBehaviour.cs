@@ -13,7 +13,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float AttackRange;
     public float windUpTime;
 
-    public GameObject weaponHitbox;
+    public GameObject weaponHitbox1;
+    public GameObject weaponHitbox2;
     public Transform[] pursuitPoints;
     public LayerMask layer;
     public Animator animator;
@@ -70,6 +71,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, agent.destination) <= AttackRange)
         {
+            Debug.Log("funkar");
             attackBuffer = 3;
             StartCoroutine(Attack());
         }
@@ -79,6 +81,7 @@ public class EnemyBehaviour : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.forward, out hit, detectDistance, layer))
         {
+            Debug.DrawLine(transform.position + Vector3.up * 0.5f, hit.point);
             if (hit.collider.gameObject.tag == "Player")
             {
                 state = EnemyStates.aggresive;
@@ -125,11 +128,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(windUpTime);
 
-        weaponHitbox.SetActive(true);
+        weaponHitbox1.SetActive(true);
+        weaponHitbox2.SetActive(true);
 
         yield return new WaitForSeconds(1.93f - windUpTime);
 
-        weaponHitbox.SetActive(false);
+        weaponHitbox1.SetActive(false);
+        weaponHitbox2.SetActive(false);
 
     }
     IEnumerator Hurt()

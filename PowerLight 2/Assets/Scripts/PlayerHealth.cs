@@ -18,8 +18,15 @@ public class PlayerHealth : MonoBehaviour
         iFrames += Time.deltaTime;
         if (health <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(DeathDelay());
         }
+    }
+
+    IEnumerator DeathDelay()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("GameOver");
+
     }
     private void OnTriggerEnter(Collider other)
     {
