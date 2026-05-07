@@ -3488,6 +3488,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8841773823149211094, guid: 7ca93a54bef6fe14fb750008ee98ce01, type: 3}
+      propertyPath: 'pursuitPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1065139081}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11887,6 +11891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wrench
       objectReference: {fileID: 0}
+    - target: {fileID: 9192182081031962567, guid: 6b6a76968290a064384637e89067c249, type: 3}
+      propertyPath: pickUpDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17374,8 +17382,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865720494}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.19645087, y: -0.31897464, z: 0.06615481, w: -0.92481667}
-  m_LocalPosition: {x: 13.549591, y: 1.6105194, z: 5.7401233}
+  m_LocalRotation: {x: -0.051567007, y: 0.006523004, z: -0.0013273379, w: -0.9986474}
+  m_LocalPosition: {x: -10.747829, y: 1.4579604, z: 0.09432745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44813,6 +44821,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8841773823149211094, guid: 7ca93a54bef6fe14fb750008ee98ce01, type: 3}
+      propertyPath: 'pursuitPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1065139081}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
