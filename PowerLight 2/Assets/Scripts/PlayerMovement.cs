@@ -34,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
         //rb.linearVelocity = new Vector3(vel.x, rb.linearVelocity.y, vel.z);
         //transform.Rotate(0f, rotation, 0f);
 
-        if (movement > 0)
+        if (movement > 0 && canMove)
         {
 
             anim.SetBool("isWalking", true);
 
         }
-        else if (movement < 0)
+        else if (movement < 0 && canMove)
         {
             anim.SetBool("isWalkingBack", true);
         }
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isWalking", false);
             anim.SetBool("isWalkingBack", false);
 
-            if (rotation != 0)
+            if (rotation != 0 && canMove)
             {
                 anim.SetBool("isWalking", true);
             }

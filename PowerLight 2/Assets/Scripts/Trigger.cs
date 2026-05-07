@@ -4,23 +4,31 @@ public class Trigger : MonoBehaviour
 {
     public bool isActivatable;
 
+    private bool inside;
+
     public GameObject[] enable;
     public GameObject[] disable;
 
 
+    public void Update()
+    {
+
+        if (isActivatable && inside && Input.GetKeyDown(KeyCode.L))
+        {
+            Triggered();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && !isActivatable)
         {
             Triggered();
         }
+        inside = true;
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (isActivatable && Input.GetKeyDown(KeyCode.L))
-        {
-            Triggered();
-        }
+        inside = false;
     }
 
     private void Triggered()
