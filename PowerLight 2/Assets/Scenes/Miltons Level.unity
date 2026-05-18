@@ -4953,7 +4953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6801988529952030154, guid: 9ff69cf955c9ecb4aaf97c72f57a1585, type: 3}
       propertyPath: text
-      value: I want to go home.
+      value: Where even am I? All signs of humanity left this place long ago.
       objectReference: {fileID: 0}
     - target: {fileID: 6801988529952030154, guid: 9ff69cf955c9ecb4aaf97c72f57a1585, type: 3}
       propertyPath: textObject
@@ -17448,8 +17448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865720494}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.051567007, y: 0.006523004, z: -0.0013273379, w: -0.9986474}
-  m_LocalPosition: {x: -10.747829, y: 1.4579604, z: 0.09432745}
+  m_LocalRotation: {x: -0.23128848, y: 0.38855425, z: 0.102115005, w: 0.8860609}
+  m_LocalPosition: {x: -9.094206, y: 0.1832006, z: 12.884437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
