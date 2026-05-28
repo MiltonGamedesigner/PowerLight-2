@@ -21,7 +21,7 @@ public class GameOver : MonoBehaviour
     {
         if (canRestart && Input.GetKeyDown(KeyCode.L))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }
